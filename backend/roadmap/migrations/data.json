@@ -1,0 +1,189 @@
+{
+  "categories": {
+    "Matematika": {
+      "roadmap": {
+        "title": "Matematika alapjai",
+        "description": "A matematika alapfogalmai és témakörei, mint az Algebra, Geometria és Trigonometria alapjai.",
+        "stages": [
+          {
+            "title": "Számok",
+            "description": "Egész számok, pozitív és negatív számok, törtek, valós számok és alapvető tulajdonságok.",
+            "stages": [
+              {
+                "title": "Természetes számok (Whole numbers)",
+                "description": "A természetes számok a nemnegatív egész számok, vagyis a 0, 1, 2, 3, 4 … számtani sorozat tagjai. Egyszerűbben fogalmazva, ezek törtek és tizedesjegyek nélküli számok. Gyakran ezek az első számkészletek, amelyeket a matematikában ismertetnek velünk, beleértve a 0, 1, 2, 3 számokat és így tovább a végtelenségig."
+              },
+              {
+                "title": "Egész számok (Integers)",
+                "description": "Az egész számok a matematika alapvető aspektusai. Tartalmaznak minden egész számot, pozitívat és negatívat, valamint nullát is. Az egész számokat széles körben használják olyan alapvető aritmetikai műveletekben, mint az összeadás, kivonás, szorzás és osztás. Emellett döntő szerepet játszanak a különböző matematikai fogalmakban, beleértve a prímszámokat, a többszöröseket és tényezőket, valamint a számelméletet. Ezek a számok számos matematikai számítás gerincét képezik, és megértésük központi szerepet játszik a tágabb matematikai fogalmak megértésében."
+              },
+              {
+                "title": "Racionális számok",
+                "description": ""
+              },
+              {
+                "title": "Irracionális",
+                "description": ""
+              },
+              {
+                "title": "Valós",
+                "description": ""
+              },
+              {
+                "title": "Komplex",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "title": "Alapműveletek",
+            "description": "Műveletek: összeadás, kivonás, szorzás, osztás, valamint ezek alkalmazása különböző típusú számokra."
+          },
+          {
+            "title": "Algebra",
+            "description": "Az algebra alapjai, beleértve a kifejezések, egyenletek és polinomok kezelését."
+          },
+          {
+            "title": "Geometria",
+            "description": "Két- és háromdimenziós alakzatok, szögek, körök, háromszögek és négyszögek tulajdonságai."
+          },
+          {
+            "title": "Trigonometria",
+            "description": "A szögek és háromszögek elemzése, szinusz, koszinusz és tangens alapfogalmai."
+          },
+          {
+            "title": "Logaritmus és hatványozás",
+            "description": "Logaritmus alapok, hatványok tulajdonságai és ezek alkalmazásai matematikai problémák megoldásában."
+          },
+          {
+            "title": "Analízis (Calculus)",
+            "description": ""
+          },
+          {
+            "title": "Valószínűségszámítás",
+            "description": ""
+          },
+          {
+            "title": "Statisztika",
+            "description": ""
+          },
+          {
+            "title": "Logika",
+            "description": "A matematikában a logika egy formális elemzési rendszer, amely az állítások elfogadhatóságán és érvényességén alapuló következtetések levonásában segít. Különféle altémákat tartalmaz, mint például a propozíciós logika, az elsőrendű logika, a következtetések és az igazságtáblázatok. Alapkoncepciója a premisszák elfogadhatóságára összpontosít, ami egy bizonyos következtetést eredményez."
+          }
+        ]
+      },
+      "subcategories": [
+        {
+          "name": "Algebra",
+          "roadmaps": [
+            "Algebra alapjai",
+            "Mátrixok és mátrixműveletek",
+            "Lineáris algebra"
+          ]
+        },
+        {
+          "name": "Analízis",
+          "roadmaps": [
+            "Deriválás és integrálás (Calculus alapjai)",
+            "Differenciálegyenletek",
+            "Határértékek és folytonosság (limitek)",
+            "Multiváltozós Calculus"
+          ]
+        },
+        {
+          "name": "Valószínűségszámítás és statisztika",
+          "roadmaps": [
+            "Valószínűség alapjai (Probability)",
+            "Valószínűségi változók és eloszlások",
+            "Alapstatisztika (átlag, medián, szórás)",
+            "Hipotézisvizsgálat és következtetések",
+            "Regresszióelemzés"
+          ]
+        },
+        {
+          "name": "Determinations",
+          "roadmaps": [
+            "Determináns számítás (mátrixokhoz)",
+            "Eigenelemek és sajátértékek",
+            "Lineáris egyenletrendszerek megoldása",
+            "Mátrixok és determinánsok kapcsolata"
+          ]
+        }
+      ]
+    },
+    "Fizika": {
+      "subcategories": [
+        {
+          "name": "Mechanika",
+          "roadmaps": [
+            "Newton törvényei",
+            "Mozgás alapjai",
+            "Energiamegmaradás"
+          ]
+        },
+        {
+          "name": "Kvantumfizika",
+          "roadmaps": [
+            "Atommodell fejlődése",
+            "Kvantummechanika alapjai",
+            "Hullám-részecsketermészet"
+          ]
+        }
+      ]
+    },
+    "Elektronika": {
+      "subcategories": [
+        {
+          "name": "Áramkörök",
+          "roadmaps": [
+            "Ellenállások, kondenzátorok és diódák",
+            "Transzformátorok",
+            "Digitális áramkörök"
+          ]
+        },
+        {
+          "name": "Áramlások",
+          "roadmaps": [
+            "Ohm törvénye",
+            "Feszültség és áramerősség",
+            "Elektronikai mérések"
+          ]
+        }
+      ]
+    },
+    "Informatika": {
+      "subcategories": [
+        {
+          "name": "Fejlesztés",
+          "roadmaps": [
+            {
+              "name": "Frontend fejlesztés",
+              "roadmaps": [
+                "HTML alapjai",
+                "CSS alapjai",
+                "JavaScript alapjai"
+              ]
+            },
+            {
+              "name": "Backend fejlesztés",
+              "roadmaps": [
+                "Python alapjai",
+                "Django használat",
+                "RESTful API fejlesztése"
+              ]
+            },
+            {
+              "name": "DevOps",
+              "roadmaps": [
+                "Konténerek használata (Docker)",
+                "CI/CD pipeline kialakítása",
+                "Kubernetes alapjai"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

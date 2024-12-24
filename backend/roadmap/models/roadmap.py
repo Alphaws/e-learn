@@ -1,17 +1,21 @@
 from django.db import models
 from parler.models import TranslatableModel, TranslatedFields
+from django_quill.fields import QuillField
 
 class Roadmap(TranslatableModel):
     translations = TranslatedFields(
         title=models.CharField(max_length=200),
-        description=models.TextField(null=True, blank=True),
+        description=QuillField(),
     )
     start_stage = models.ForeignKey('RoadmapStage', on_delete=models.CASCADE, related_name='roadmap_start_stage')
+
+    def __str__(self):
+        return self.safe_translation_getter('title', any_language=True)
 
 class RoadmapStage(TranslatableModel):
     translations = TranslatedFields(
         title=models.CharField(max_length=200),
-        description=models.TextField(null=True, blank=True),
+        description=QuillField(null=True, blank=True),
     )
     parent = models.ForeignKey(
         'self', on_delete=models.CASCADE, null=True, blank=True, related_name='sub_stages'

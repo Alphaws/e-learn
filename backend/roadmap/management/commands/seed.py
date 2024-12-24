@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
-from roadmap.models import Tag
+
+from roadmap.models import Tag, RoadmapStage, StageRelationship, Roadmap
 from django.utils.text import slugify
 
 
@@ -34,5 +35,8 @@ class Command(BaseCommand):
                 self.stdout.write(f'Tag created: {tag.name}')
             else:
                 self.stdout.write(f'Tag already exists: {tag.name}')
+
+
+        # @todo: data.json feldolgozása
 
         self.stdout.write(self.style.SUCCESS('Database successfully seeded!'))

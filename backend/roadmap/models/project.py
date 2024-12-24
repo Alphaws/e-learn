@@ -1,5 +1,6 @@
 from django.db import models
 from .tag import Tag
+from django_quill.fields import QuillField
 
 class Project(models.Model):
     DIFFICULTY_CHOICES = [
@@ -15,7 +16,7 @@ class Project(models.Model):
         default='medium',
     )
     short_description = models.CharField(max_length=500)
-    description = models.TextField()
+    description = QuillField()
     category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='projects')
     tags = models.ManyToManyField(Tag, related_name="projects")  # Címkék
 
