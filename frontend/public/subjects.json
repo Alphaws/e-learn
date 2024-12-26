@@ -1,0 +1,158 @@
+[
+  {
+    "title": {
+      "hu": "Matematika",
+      "en": "Math",
+      "de": "Mathe"
+    },
+    "slug": "matek",
+    "description": {
+      "hu": "A matematika az élet minden területén jelen van. Ismerd meg az alapokat és haladó fogalmakat!",
+      "en": "Math is the life of everybody. Learn the basics and advanced concepts!",
+      "de": "Translation missing"
+    },
+    "modules": [
+      {
+        "title": {
+          "hu": "Algebra",
+          "en": "Algebra",
+          "de": "Algebraische Grundlagen"
+        },
+        "slug": "algebra"
+      },
+      {
+        "title": {
+          "hu": "Geometria",
+          "en": "Geometry",
+          "de": "Geometrie"
+        },
+        "slug": "geometria"
+      },
+      {
+        "title": {
+          "hu": "Statisztika",
+          "en": "Statistics",
+          "de": "Statistik"
+        },
+        "slug": "statisztika"
+      }
+    ]
+  },
+  {
+    "title": {
+      "hu": "Fizika",
+      "en": "Physics",
+      "de": "Physik"
+    },
+    "slug": "fizika",
+    "description": {
+      "hu": "Fedezd fel a természet törvényeit és a világegyetem működését.",
+      "en": "Learn the laws of nature and the world system.",
+      "de": "Translation missing"
+    },
+    "modules": [
+      {
+        "title": {
+          "hu": "Mechanika",
+          "en": "Mechanics",
+          "de": "Mechanik"
+        },
+        "slug": "mechanika"
+      },
+      {
+        "title": {
+          "hu": "Hőtan",
+          "en": "Thermodynamics",
+          "de": "Thermodynamik"
+        },
+        "slug": "hotan"
+      },
+      {
+        "title": {
+          "hu": "Elektromosság",
+          "en": "Electricity",
+          "de": "Elektrizität"
+        },
+        "slug": "elektromossag"
+      }
+    ]
+  },
+  {
+    "title": {
+      "hu": "Kémia",
+      "en": "Chemistry",
+      "de": "Chemie"
+    },
+    "slug": "kemia",
+    "description": {
+      "hu": "Tanulj a kémiai anyagokról, reakciókról és a kémia szépségeiről.",
+      "en": "Learn about chemical substances, reactions, and the beauty of chemistry.",
+      "de": "Translation missing"
+    },
+    "modules": [
+      {
+        "title": {
+          "hu": "Szervetlen kémia",
+          "en": "Inorganic Chemistry",
+          "de": "Anorganische Chemie"
+        },
+        "slug": "szervetlen-kemia"
+      },
+      {
+        "title": {
+          "hu": "Szerves kémia",
+          "en": "Organic Chemistry",
+          "de": "Organische Chemie"
+        },
+        "slug": "szerves-kemia"
+      },
+      {
+        "title": {
+          "hu": "Analitikai kémia",
+          "en": "Analytical Chemistry",
+          "de": "Analytische Chemie"
+        },
+        "slug": "analitikai-kemia"
+      }
+    ]
+  },
+  {
+    "title": {
+      "hu": "Informatika",
+      "en": "Informatics",
+      "de": "Informatik"
+    },
+    "slug": "informatika",
+    "description": {
+      "hu": "Merülj el az informatika világában a számítógépek működésétől a programozásig.",
+      "en": "Learn how computers work and how to program.",
+      "de": "Translation missing"
+    },
+    "modules": [
+      {
+        "title": {
+          "hu": "Hardver",
+          "en": "Hardware",
+          "de": "Hardware"
+        },
+        "slug": "hardver"
+      },
+      {
+        "title": {
+          "hu": "Hálózatok",
+          "en": "Networking",
+          "de": "Netzwerke"
+        },
+        "slug": "halozatok"
+      },
+      {
+        "title": {
+          "hu": "Programozás",
+          "en": "Programming",
+          "de": "Programmieren"
+        },
+        "slug": "programozas"
+      }
+    ]
+  }
+]

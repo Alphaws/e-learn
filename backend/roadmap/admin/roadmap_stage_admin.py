@@ -6,9 +6,9 @@ from roadmap.models import RoadmapStage, StageRelationship
 
 @admin.register(RoadmapStage)
 class RoadmapStageAdmin(TranslatableAdmin):
-
-    list_display = ('title','parent')
+    list_display = ('title', 'parent')
     fields = ('title', 'description', 'parent')
+
 
 @admin.register(StageRelationship)
 class StageRelationshipAdmin(admin.ModelAdmin):

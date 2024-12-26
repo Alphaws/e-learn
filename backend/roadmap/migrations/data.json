@@ -1,116 +1,174 @@
+[
+  {
+
+  },
 {
   "categories": {
+
+
+
+
     "Matematika": {
-      "roadmap": {
+      "roadmaps":[ {
         "title": "Matematika alapjai",
         "description": "A matematika alapfogalmai és témakörei, mint az Algebra, Geometria és Trigonometria alapjai.",
         "stages": [
           {
             "title": "Számok",
             "description": "Egész számok, pozitív és negatív számok, törtek, valós számok és alapvető tulajdonságok.",
+            "type": "main",
             "stages": [
               {
                 "title": "Természetes számok (Whole numbers)",
-                "description": "A természetes számok a nemnegatív egész számok, vagyis a 0, 1, 2, 3, 4 … számtani sorozat tagjai. Egyszerűbben fogalmazva, ezek törtek és tizedesjegyek nélküli számok. Gyakran ezek az első számkészletek, amelyeket a matematikában ismertetnek velünk, beleértve a 0, 1, 2, 3 számokat és így tovább a végtelenségig."
+                "description": "A természetes számok a nemnegatív egész számok, vagyis a 0, 1, 2, 3, 4 … számtani sorozat tagjai. Egyszerűbben fogalmazva, ezek törtek és tizedesjegyek nélküli számok. Gyakran ezek az első számkészletek, amelyeket a matematikában ismertetnek velünk, beleértve a 0, 1, 2, 3 számokat és így tovább a végtelenségig.",
+                "type": "secondary"
               },
               {
                 "title": "Egész számok (Integers)",
-                "description": "Az egész számok a matematika alapvető aspektusai. Tartalmaznak minden egész számot, pozitívat és negatívat, valamint nullát is. Az egész számokat széles körben használják olyan alapvető aritmetikai műveletekben, mint az összeadás, kivonás, szorzás és osztás. Emellett döntő szerepet játszanak a különböző matematikai fogalmakban, beleértve a prímszámokat, a többszöröseket és tényezőket, valamint a számelméletet. Ezek a számok számos matematikai számítás gerincét képezik, és megértésük központi szerepet játszik a tágabb matematikai fogalmak megértésében."
+                "description": "Az egész számok a matematika alapvető aspektusai. Tartalmaznak minden egész számot, pozitívat és negatívat, valamint nullát is. Az egész számokat széles körben használják olyan alapvető aritmetikai műveletekben, mint az összeadás, kivonás, szorzás és osztás. Emellett döntő szerepet játszanak a különböző matematikai fogalmakban, beleértve a prímszámokat, a többszöröseket és tényezőket, valamint a számelméletet. Ezek a számok számos matematikai számítás gerincét képezik, és megértésük központi szerepet játszik a tágabb matematikai fogalmak megértésében.",
+                "type": "secondary"
               },
               {
                 "title": "Racionális számok",
-                "description": ""
+                "description": "",
+                "type": "secondary"
               },
               {
                 "title": "Irracionális",
-                "description": ""
+                "description": "",
+                "type": "secondary"
               },
               {
                 "title": "Valós",
-                "description": ""
+                "description": "",
+                "type": "secondary"
               },
               {
                 "title": "Komplex",
-                "description": ""
+                "description": "",
+                "type": "secondary"
               }
             ]
           },
           {
             "title": "Alapműveletek",
-            "description": "Műveletek: összeadás, kivonás, szorzás, osztás, valamint ezek alkalmazása különböző típusú számokra."
+            "description": "Műveletek: összeadás, kivonás, szorzás, osztás, valamint ezek alkalmazása különböző típusú számokra.",
+            "type": "main",
+            "stages": []
           },
           {
             "title": "Algebra",
-            "description": "Az algebra alapjai, beleértve a kifejezések, egyenletek és polinomok kezelését."
+            "description": "Az algebra alapjai, beleértve a kifejezések, egyenletek és polinomok kezelését.",
+            "type": "main",
+            "stages": [
+              {
+                "title": "Algebra alapjai",
+                "description": "",
+                "type": "secondary"
+              },
+              {
+                "title": "Mátrixok és mátrixműveletek",
+                "description": "",
+                "type": "secondary"
+              },
+              {
+                "title": "Lineáris algebra",
+                "description": "",
+                "type": "secondary"
+              }
+            ]
           },
           {
             "title": "Geometria",
-            "description": "Két- és háromdimenziós alakzatok, szögek, körök, háromszögek és négyszögek tulajdonságai."
+            "description": "Két- és háromdimenziós alakzatok, szögek, körök, háromszögek és négyszögek tulajdonságai.",
+            "type": "main"
           },
           {
             "title": "Trigonometria",
-            "description": "A szögek és háromszögek elemzése, szinusz, koszinusz és tangens alapfogalmai."
+            "description": "A szögek és háromszögek elemzése, szinusz, koszinusz és tangens alapfogalmai.",
+            "type": "main"
           },
           {
             "title": "Logaritmus és hatványozás",
-            "description": "Logaritmus alapok, hatványok tulajdonságai és ezek alkalmazásai matematikai problémák megoldásában."
+            "description": "Logaritmus alapok, hatványok tulajdonságai és ezek alkalmazásai matematikai problémák megoldásában.",
+            "type": "main"
           },
           {
             "title": "Analízis (Calculus)",
-            "description": ""
+            "description": "",
+            "type": "main",
+            "stages": [
+              {
+                "title": "Deriválás és integrálás (Calculus alapjai)",
+                "description": "",
+                "type": "secondary"
+              },
+              {
+                "title": "Differenciálegyenletek",
+                "description": "",
+                "type": "secondary"
+              },
+              {
+                "title": "Határértékek és folytonosság (limitek)",
+                "description": "",
+                "type": "secondary"
+              },
+              {
+                "title": "Multiváltozós Calculus",
+                "description": "",
+                "type": "secondary"
+              }
+            ]
           },
           {
             "title": "Valószínűségszámítás",
-            "description": ""
+            "description": "",
+            "type": "main",
+            "stages": [
+              {
+                "title": "Valószínűség alapjai (Probability)",
+                "description": "",
+                "type": "secondary"
+              },
+              {
+                "title": "Valószínűségi változók és eloszlások",
+                "description": "",
+                "type": "secondary"
+              },
+              {
+                "title": "Alapstatisztika (átlag, medián, szórás)",
+                "description": "",
+                "type": "secondary"
+              },
+              {
+                "title": "Hipotézisvizsgálat és következtetések",
+                "description": "",
+                "type": "secondary"
+              },
+              {
+                "title": "Regresszióelemzés",
+                "description": "",
+                "type": "secondary"
+              }
+            ]
           },
           {
             "title": "Statisztika",
+            "type": "main",
             "description": ""
           },
           {
             "title": "Logika",
-            "description": "A matematikában a logika egy formális elemzési rendszer, amely az állítások elfogadhatóságán és érvényességén alapuló következtetések levonásában segít. Különféle altémákat tartalmaz, mint például a propozíciós logika, az elsőrendű logika, a következtetések és az igazságtáblázatok. Alapkoncepciója a premisszák elfogadhatóságára összpontosít, ami egy bizonyos következtetést eredményez."
+            "description": "A matematikában a logika egy formális elemzési rendszer, amely az állítások elfogadhatóságán és érvényességén alapuló következtetések levonásában segít. Különféle altémákat tartalmaz, mint például a propozíciós logika, az elsőrendű logika, a következtetések és az igazságtáblázatok. Alapkoncepciója a premisszák elfogadhatóságára összpontosít, ami egy bizonyos következtetést eredményez.",
+            "type": "main"
+          },
+          {
+            "title": "Halmazok és függvények",
+            "description": "A halmazok és függvények a matematikában a „halmaz” alapfogalmára utalnak, amely különálló objektumok gyűjteménye, és egy „függvényre”, amely a halmazok közötti kapcsolatot írja le. A halmazok és a függvények megértése döntő fontosságú a matematika számos területén, beleértve az algebrát, a geometriát és a számítást.",
+            "type": "main"
           }
         ]
-      },
-      "subcategories": [
-        {
-          "name": "Algebra",
-          "roadmaps": [
-            "Algebra alapjai",
-            "Mátrixok és mátrixműveletek",
-            "Lineáris algebra"
-          ]
-        },
-        {
-          "name": "Analízis",
-          "roadmaps": [
-            "Deriválás és integrálás (Calculus alapjai)",
-            "Differenciálegyenletek",
-            "Határértékek és folytonosság (limitek)",
-            "Multiváltozós Calculus"
-          ]
-        },
-        {
-          "name": "Valószínűségszámítás és statisztika",
-          "roadmaps": [
-            "Valószínűség alapjai (Probability)",
-            "Valószínűségi változók és eloszlások",
-            "Alapstatisztika (átlag, medián, szórás)",
-            "Hipotézisvizsgálat és következtetések",
-            "Regresszióelemzés"
-          ]
-        },
-        {
-          "name": "Determinations",
-          "roadmaps": [
-            "Determináns számítás (mátrixokhoz)",
-            "Eigenelemek és sajátértékek",
-            "Lineáris egyenletrendszerek megoldása",
-            "Mátrixok és determinánsok kapcsolata"
-          ]
-        }
-      ]
+      }]
     },
     "Fizika": {
       "subcategories": [
@@ -129,6 +187,18 @@
             "Kvantummechanika alapjai",
             "Hullám-részecsketermészet"
           ]
+        },
+        {
+          "name": "Termodinamika",
+          "description": ""
+        },
+        {
+          "name": "Elektromágnesesség",
+          "description": ""
+        },
+        {
+          "name": "Hidrodinamika",
+          "description": ""
         }
       ]
     },
@@ -158,15 +228,18 @@
           "name": "Fejlesztés",
           "roadmaps": [
             {
-              "name": "Frontend fejlesztés",
-              "roadmaps": [
+              "title": "Frontend fejlesztés",
+              "roadmap": [
+                {
+
+                },
                 "HTML alapjai",
                 "CSS alapjai",
                 "JavaScript alapjai"
               ]
             },
             {
-              "name": "Backend fejlesztés",
+              "title": "Backend fejlesztés",
               "roadmaps": [
                 "Python alapjai",
                 "Django használat",
@@ -182,8 +255,17 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Hálózatok",
+          "description": ""
+        },
+        {
+          "name": "",
+          "description": ""
         }
       ]
     }
   }
 }
+]

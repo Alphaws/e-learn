@@ -3,7 +3,8 @@ from parler.models import TranslatableModel, TranslatedFields
 
 class Category(TranslatableModel):
     translations = TranslatedFields(
-        name=models.CharField(max_length=100)
+        name=models.CharField(max_length=100),
+        description=models.TextField(null=True, blank=True)
     )
     class Meta:
         verbose_name = "Category"

@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from "./common/layout/navbar/navbar.component";
+import { FooterComponent } from "./common/layout/footer/footer.component";
+import { initFlowbite } from "flowbite";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'frontend';
+
+  constructor() {}
+
+  ngOnInit() {
+    initFlowbite()
+  }
 }

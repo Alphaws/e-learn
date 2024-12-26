@@ -36,7 +36,6 @@ class Command(BaseCommand):
             else:
                 self.stdout.write(f'Tag already exists: {tag.name}')
 
-
         # @todo: data.json feldolgozása
 
         self.stdout.write(self.style.SUCCESS('Database successfully seeded!'))
