@@ -1,34 +1,109 @@
 <div class="container mx-auto px-4 py-8 dark:bg-gray-900 dark:text-white">
     <!-- Main Header -->
     <h1 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-        Üdvözlünk a Tanulás Világában!
+        {{ 'welcome' | translate }}
     </h1>
-
     <!-- Subjects Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         <div *ngFor="let subject of subjects" class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
             <!-- Subject Title -->
             <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                {{ subject.title.hu }}
+                {{ subject.title[language] }}
             </h2>
             <!-- Subject Description -->
             <p class="text-gray-600 dark:text-gray-400 mt-2">
-                {{ subject.description.hu }}
+                {{ subject.description[language] }}
             </p>
             <!-- Modules List -->
             <ul class="mt-4">
                 <li *ngFor="let module of subject.modules" class="text-gray-700 dark:text-gray-300">
-                    - {{ module.title.hu }}
+                    - {{ module.title[language] }}
                 </li>
             </ul>
             <!-- Navigation Link -->
-            <a routerLink="/subject/{{ subject.slug }}" class="text-blue-500 hover:underline dark:text-blue-400">
+            <a routerLink="/s/{{ subject.slug }}" class="text-blue-500 hover:underline dark:text-blue-400">
                 Tovább...
             </a>
         </div>
     </div>
 
-    <!-- Additional Sections -->
+    <!-- Latest Projects -->
     <h2 class="text-2xl text-center my-4">Legújabb projektek</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Tanulókövető rendszer</h3>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                Egy webalkalmazás, amely lehetővé teszi a diákok számára, hogy nyomon kövessék tanulmányi előmenetelüket és a teljesített tanfolyamokat.
+            </p>
+        </div>
+        <div class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Virtuális labor</h3>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                Interaktív platform, amely lehetővé teszi a diákok számára, hogy kémiai és fizikai kísérleteket végezzenek szimulált környezetben.
+            </p>
+        </div>
+        <div class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Programozási kihívások</h3>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                Olyan weboldal, ahol különböző nehézségű kódolási feladatokat oldhatnak meg a felhasználók, miközben pontokat és ranglistákat gyűjtenek.
+            </p>
+        </div>
+        <div class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Matematikai játékok</h3>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                Oktató jellegű játékok, amelyek szórakoztató módon segítenek elsajátítani az algebrát, geometriát vagy a statisztikát.
+            </p>
+        </div>
+        <div class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Tananyag-ajánló motor</h3>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                Egy mesterséges intelligenciával támogatott rendszer, amely személyre szabott tananyagokat ajánl a tanulók érdeklődése és szintje alapján.
+            </p>
+        </div>
+    </div>
+
+    <!-- Latest Courses -->
     <h2 class="text-2xl text-center my-4">Legújabb tanfolyamok</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Tanulókövető rendszer</h3>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                Egy webalkalmazás, amely lehetővé teszi a diákok számára, hogy nyomon kövessék tanulmányi előmenetelüket és a teljesített tanfolyamokat.
+            </p>
+        </div>
+        <div class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Virtuális labor</h3>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                Interaktív platform, amely lehetővé teszi a diákok számára, hogy kémiai és fizikai kísérleteket végezzenek szimulált környezetben.
+            </p>
+        </div>
+        <div class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Programozási kihívások</h3>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                Olyan weboldal, ahol különböző nehézségű kódolási feladatokat oldhatnak meg a felhasználók, miközben pontokat és ranglistákat gyűjtenek.
+            </p>
+        </div>
+        <div class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Matematikai játékok</h3>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                Oktató jellegű játékok, amelyek szórakoztató módon segítenek elsajátítani az algebrát, geometriát vagy a statisztikát.
+            </p>
+        </div>
+        <div class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Tananyag-ajánló motor</h3>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                Egy mesterséges intelligenciával támogatott rendszer, amely személyre szabott tananyagokat ajánl a tanulók érdeklődése és szintje alapján.
+            </p>
+        </div>
+    </div>
+
+    <!-- Latest Roadmaps -->
+    <h2 class="text-2xl text-center my-4">Legújabb ütemtervek</h2>
+
+
+    <!-- Latest stages -->
+
+
+
+
 </div>

@@ -10,7 +10,7 @@ export class DataService {
   constructor() { }
 
   getData() {
-    return this.http.get('subjects.json');
+    return this.http.get('data/subjects.json');
 
   }
 }

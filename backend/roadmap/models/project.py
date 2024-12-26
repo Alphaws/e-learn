@@ -17,7 +17,7 @@ class Project(models.Model):
     )
     short_description = models.CharField(max_length=500)
     description = QuillField()
-    category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='projects')
+    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, related_name='projects')
     tags = models.ManyToManyField(Tag, related_name="projects")  # Címkék
 
     def __str__(self):

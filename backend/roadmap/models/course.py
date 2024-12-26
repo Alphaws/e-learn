@@ -1,53 +1,70 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 from parler.models import TranslatableModel, TranslatedFields
 
 
 class Course(TranslatableModel):
+    slug = models.SlugField(unique=True)
+    level = models.CharField(max_length=50, choices=[
+        ('beginner', 'Beginner'),
+        ('intermediate', 'Intermediate'),
+        ('advanced', 'Advanced'),
+    ])
+    tags = models.TextField(help_text="Comma-separated tags")
     translations = TranslatedFields(
         title=models.CharField(max_length=100),
         description=models.TextField(null=True, blank=True)
     )
-    slug = models.SlugField(unique=True)
+
 
     class Meta:
         verbose_name = "Course"
         verbose_name_plural = "Courses"
 
     def __str__(self):
-        return self.safe_translation_getter('name', any_language=True)
+        return self.safe_translation_getter('title', any_language=True) or self.slug
 
 
 class Chapter(TranslatableModel):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='chapters')
+    sort_order = models.IntegerField(default=0)
+    slug = models.SlugField(unique=True)
     translations = TranslatedFields(
         title=models.CharField(max_length=100),
         description=models.TextField(null=True, blank=True)
     )
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='chapters')
-    order = models.IntegerField(default=0)
-    slug = models.SlugField(unique=True)
+
 
     class Meta:
         verbose_name = "Chapter"
         verbose_name_plural = "Chapters"
+        ordering = ['sort_order']
 
     def __str__(self):
         return self.safe_translation_getter('title', any_language=True)
 
 
 class Lesson(TranslatableModel):
+    chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE, related_name='lessons')
+    sort_order = models.IntegerField(default=0)
+    lesson_type = models.CharField(max_length=50, choices=[
+        ('text', 'Text'),
+        ('video', 'Video'),
+    ])
     translations = TranslatedFields(
         title=models.CharField(max_length=100),
         description=models.TextField(null=True, blank=True)
     )
-    chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE, related_name='lessons')
-    order = models.IntegerField(default=0)
+    video_url = models.URLField(blank=True)
 
     class Meta:
         verbose_name = "Lesson"
         verbose_name_plural = "Lessons"
+        ordering = ['sort_order']
 
     def __str__(self):
-        return self.safe_translation_getter('title', any_language=True)
+        return self.safe_translation_getter('title', any_language=True) or f"Lesson {self.sort_order}"
 
 
 class Media(models.Model):

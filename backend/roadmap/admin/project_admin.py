@@ -4,7 +4,7 @@ from roadmap.models import Project, UserProjectStatus
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('name', 'difficulty', 'category')
+    list_display = ('name', 'difficulty', 'subject')
 
     class Media:
         css = {

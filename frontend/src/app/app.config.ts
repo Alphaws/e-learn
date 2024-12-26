@@ -1,8 +1,26 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from "@angular/common/http";
+import { HttpClient, provideHttpClient } from "@angular/common/http";
+import {
+  provideTranslateService,
+  TranslateLoader,
+  TranslateModule,
+  TranslateService
+} from "@ngx-translate/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserModule } from "@angular/platform-browser";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { environment } from "../environments/environment";
+
+export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, 'i18n/', ".json");
+}
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -10,6 +28,21 @@ export const appConfig: ApplicationConfig = {
         eventCoalescing: true
       }),
     provideRouter(routes),
-      provideHttpClient()
+      provideHttpClient(),
+    provideTranslateService({
+      defaultLanguage: 'hu'
+    }),
+      importProvidersFrom(
+          BrowserModule,
+          BrowserAnimationsModule,
+          TranslateService,
+          TranslateModule.forRoot({
+            loader: {
+              provide: TranslateLoader,
+              useFactory: httpLoaderFactory,
+              deps: [HttpClient]
+            }
+          })
+      )
   ]
 };

@@ -28,6 +28,15 @@
                 hover:text-gray-900 px-3 py-2 text-sm font-medium">Contact</a>
             </div>
 
+
+            <div class="flex items-center">
+                <label for="language-select" class="mr-2">Nyelv:</label>
+                <select id="language-select" [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
+                    <option value="hu">Magyar</option>
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
             <!-- Login/Avatar -->
             <div class="flex items-center">
                 <ng-container *ngIf="isLoggedIn; else loginButton">
@@ -38,7 +47,7 @@
                                 aria-expanded="false"
                                 (click)="toggleDropdown()"
                         >
-                            <img class="h-8 w-8 rounded-full" src="../../../../../public/assets/avatar.jpg" alt="Avatar">
+                            <img class="h-8 w-8 rounded-full" src="/assets/avatar.jpg" alt="Avatar">
                         </button>
                         <!-- Dropdown menu -->
                         <div

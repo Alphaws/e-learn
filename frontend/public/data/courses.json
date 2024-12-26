@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "introduction-to-python",
+    "level": "beginner",
+    "prerequisites": [],
+    "tags": "python, development",
+    "title": {
+      "hu": "Bevezetés a Python nyelvbe",
+      "en": "Introduction to Python",
+      "de": ""
+    },
+    "description": {
+      "hu": "A Python egy általános célú programozási nyelv, amely egyre népszerűbb az adattudományban. A vállalatok világszerte a Python segítségével gyűjtenek betekintést adataikból, és versenyelőnyt szereznek. Más Python oktatóanyagoktól eltérően ez a kurzus a Pythonra összpontosít, kifejezetten az adattudományhoz. A Bevezetés a Pythonba tanfolyamunkon megtudhatja az adatok tárolásának és kezelésének hatékony módjait, valamint hasznos adattudományi eszközöket, amelyek segítségével elkezdheti saját elemzéseit. Indítsa el a DataCamp online Python tananyagát most.",
+      "en": "Python is a general-purpose programming language that is becoming ever more popular for data science. Companies worldwide are using Python to harvest insights from their data and gain a competitive edge. Unlike other Python tutorials, this course focuses on Python specifically for data science. In our Introduction to Python course, you’ll learn about powerful ways to store and manipulate data, and helpful data science tools to begin conducting your own analyses. Start DataCamp’s online Python curriculum now.",
+      "de": ""
+    },
+    "chapters": [
+      {
+        "sort_order": 1,
+        "title": {
+          "hu": "Python Alapok",
+          "en": "Python Basics",
+          "de": ""
+        },
+        "description": {
+          "hu": "Bevezetés a Python alapfogalmaiba. Ismerje meg a Python interaktív és szkript használatával történő használatát. Hozza létre az első változókat, és ismerkedjen meg a Python alapvető adattípusaival.",
+          "en": "An introduction to the basic concepts of Python. Learn how to use Python interactively and by using a script. Create your first variables and acquaint yourself with Python's basic data types.",
+          "de": ""
+        },
+        "lessons": [
+          {
+            "type": "text",
+            "sort_order": 1,
+            "title": {
+              "hu": "Hello Python!",
+              "en": "Hello Python!",
+              "de": ""
+            },
+            "description": {
+              "hu": "Hello Python! A Python ötletgazdája Guido Van Rossum. Itt láthat egy fotót Guidóval. Ami hobbiprojektnek indult, hamarosan általános célú programozási nyelvvé vált: manapság a Python segítségével gyakorlatilag bármilyen szoftver elkészíthető. De hogyan történt ez? Nos, először is a Python nyílt forráskódú. Ingyenesen használható. Másodszor, nagyon könnyű csomagokat építeni Pythonban, ami olyan kód, amelyet megoszthat másokkal, hogy megoldjon bizonyos problémákat. Az idők során egyre több ilyen kifejezetten adattudományi célú csomagot fejlesztettek ki. Tegyük fel, hogy néhány díszes vizualizációt szeretne készíteni cége értékesítéseiről. Erre van egy csomag. Vagy mi a helyzet egy adatbázishoz való csatlakozással az érzékelő méréseinek elemzéséhez? Van hozzá csomag is. Az emberek gyakran úgy emlegetik a Pythont, mint a programozási nyelvek svájci bicskáját, mivel szinte bármit meg lehet csinálni vele. Ezen a tanfolyamon elkezdjük apránként fejleszteni adattudományi kódolási készségeit, ezért ügyeljen arra, hogy lássa, milyen erős lehet a nyelv.",
+              "en": "1. Hello Python! Hi, my name is Hugo and I'll be your host for Introduction to Python for Data Science. I'm a data scientist and educator at DataCamp.\n\n2. How you will learn\n00:10 - 00:31\nIn this course, you will learn Python for Data Science through video lessons, like this one, and interactive exercises. You get your own Python session where you can experiment and try to come up with the correct code to solve the instructions. You're learning by doing, while receiving customized and instant feedback on your work.\n\n3. Python\n00:31 - 01:41\nPython was conceived by Guido Van Rossum. Here, you can see a photo of me with Guido. What started as a hobby project, soon became a general purpose programming language: nowadays, you can use Python to build practically any piece of software. But how did this happen? Well, first of all, Python is open source. It's free to use. Second, it's very easy to build packages in Python, which is code that you can share with other people to solve specific problems. Throughout time, more and more of these packages specifically built for data science have been developed. Suppose you want to make some fancy visualizations of your company's sales. There's a package for that. Or what about connecting to a database to analyze sensor measurements? There's also a package for that. People often refer to Python as the swiss army knife of programming languages as you can do almost anything with it. In this course, we'll start to build up your data science coding skills bit by bit, so make sure to stick around to see how powerful the language can be.\n\n4. IPython Shell\n01:41 - 01:48\nNow that you're all eyes and ears for Python, let's start experimenting. I'll start with the\n\n5. IPython Shell\n01:48 - 02:02\nPython shell, a place where you can type Python code and immediately see the results. In DataCamp's exercise interface, this shell is embedded here. Let's start off simple and use Python as a calculator.\n\n6. IPython Shell\n02:02 - 02:38\nLet me type 4 + 5, and hit Enter. Python interprets what you typed and prints the result of your calculation, 9. The Python shell that's used here is actually not the original one; we're using IPython, short for Interactive Python, which is some kind of juiced up version of regular Python that'll be useful later on. IPython was created by Fernando Pérez and is part of the broader Jupyter ecosystem. Apart from interactively working with Python, you can also have Python run so called\n\n7. Python Script\n02:38 - 02:54\npython scripts. These python scripts are simply text files with the extension (dot) py. It's basically a list of Python commands that are executed, almost as if you where typing the commands in the shell yourself, line by line.\n\n8. Python Script\n02:54 - 03:20\nLet's put the command from before in a script now, which can be found here in DataCamp's interface. The next step is executing the script, by clicking 'Submit Answer'. If you execute this script in the DataCamp interface, there's nothing in the output pane. That's because you have to explicitly use print inside scripts if you want to generate output during execution.\n\n9. Python Script\n03:20 - 03:48\nLet's wrap our previous calculation in a print call, and rerun the script. This time, the same output as before is generated, great! Putting your code in Python scripts instead of manually retyping every step interactively will help you to keep structure and avoid retyping everything over and over again if you want to make a change; you simply make the change in the script, and rerun the entire thing.\n\n10. DataCamp Interface\n03:48 - 04:07\nNow that you've got an idea about different ways of working with Python, I suggest you head over to the exercises. Use the IPython Shell for experimentation, and use the Python script editor to code the actual answer. If you click Submit Answer, your script will be executed and checked for correctness.\n\n11. Let's practice!\n04:07 - 04:14\nGet coding and don't forget to have fun!",
+              "de": ""
+            },
+            "video_url": ""
+          },
+          {
+            "type": "text",
+            "sort_order": 1,
+            "title": {
+              "hu": "",
+              "en": "",
+              "de": ""
+            },
+            "description": {
+              "hu": "",
+              "en": "",
+              "de": ""
+            },
+            "video_url": ""
+          }
+        ]
+      },{},{}
+    ]
+  },
+  {
+    "slug": "data-structures-and-algorithms-in-python",
+    "level": "advanced",
+    "prerequisites": [{
+      "type": "course",
+      "slug": "introduction-to-python"
+    }],
+    "tags": "python, development",
+    "title": {"hu":"","en": "Data Structures and Algorithms in Python","de": ""},
+    "description": {"hu": "","en": "","de": ""},
+    "chapters": []
+  }
+]

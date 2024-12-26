@@ -1,10 +1,13 @@
 import { Component, inject, Renderer2 } from '@angular/core';
 import { NgIf } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-navbar',
   imports: [
-    NgIf
+    NgIf,
+    FormsModule
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
@@ -12,10 +15,24 @@ import { NgIf } from "@angular/common";
 export class NavbarComponent {
 
   renderer: any = inject(Renderer2);
+  translate = inject(TranslateModule);
+  translateService = inject(TranslateService);
   isLoggedIn: boolean = false;
   dropdownOpen: any;
   mobileMenuOpen: any;
   darkMode: boolean = true;
+  selectedLanguage: any;
+
+  constructor() {
+    this.isLoggedIn = false;
+    this.dropdownOpen = false;
+    this.mobileMenuOpen = false;
+    this.darkMode = true;
+    this.selectedLanguage = 'hu';
+    this.selectedLanguage = 'hu';
+    this.translateService.setDefaultLang('hu');
+    this.translateService.use(this.selectedLanguage);
+  }
 
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
@@ -45,5 +62,10 @@ export class NavbarComponent {
     } else {
       this.renderer.addClass(html, 'dark');
     }
+  }
+
+  changeLanguage() {
+    this.translateService.use(this.selectedLanguage);
+
   }
 }
