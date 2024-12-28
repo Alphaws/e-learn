@@ -5,17 +5,14 @@ import { environment } from "@environments/environment";
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class BlogService {
+
   http = inject(HttpClient);
   apiUrl = environment.apiUrl;
 
   constructor() { }
 
-  getSubjects() {
-    return this.http.get(this.apiUrl + 'api/subjects/');
-  }
-
-  getSubject(slug: string) {
-    return this.http.get(this.apiUrl + 'api/subject/' + slug + '/');
+  getBlogPostsForSubject(subjectSlug: string) {
+    return this.http.get(this.apiUrl + 'api/blog/' + subjectSlug + '/');
   }
 }

@@ -1,4 +1,10 @@
 {
   "welcome": "Üdvözlünk a Tanulás Világában!",
-  "subject": "Tárgy"
+  "subject": "Tárgy",
+  "more...": "Tovább...",
+  "Login": "Bejelentkezés",
+  "Username": "Felhasználónév",
+  "Email": "Email",
+  "Password": "Jelszó",
+  "Cancel": "Mégsem"
 }

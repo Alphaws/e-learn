@@ -1,0 +1,77 @@
+services:
+  db:
+    image: postgres:15.1
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - prstart_network
+
+  api:
+    user: "${UID}:${GID}"
+    image: prstart_api
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - .env
+    working_dir: /app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.prstart-api.rule=${API_HOST}
+      - traefik.http.routers.prstart-api.entrypoints=websecure
+      - traefik.http.routers.prstart-api.tls=true
+      - traefik.http.routers.prstart-api.tls.certresolver=myresolver
+      - traefik.http.routers.prstart-api.service=prstart-api@docker
+      - traefik.log.level=${LOG_LEVEL}
+      - traefik.http.services.prstart-api.loadbalancer.server.port=8000
+    networks:
+      - traefik
+      - prstart_network
+
+  frontend:
+    image: prstart_frontend
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        - FE_CONFIG=${FE_CONFIG}
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "8200:80"
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.prstart-frontend.rule=${FE_HOST}
+      - traefik.http.routers.prstart-frontend.entrypoints=websecure
+      - traefik.http.routers.prstart-frontend.tls=true
+      - traefik.http.routers.prstart-frontend.tls.certresolver=myresolver
+      - traefik.http.routers.prstart-frontend.service=prstart-frontend@docker
+      - traefik.log.level=${LOG_LEVEL}
+      - traefik.http.services.prstart-frontend.loadbalancer.server.port=80
+    networks:
+      - traefik
+      - prstart_network
+
+
+networks:
+  traefik:
+    external: true
+  prstart_network:
+    driver: bridge

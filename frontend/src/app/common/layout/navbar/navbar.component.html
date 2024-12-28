@@ -1,3 +1,6 @@
+<app-login-modal #loginModal (loginSuccess)="onLoginSuccess()"></app-login-modal>
+
+
 <nav class="bg-white border-b border-gray-200 fixed w-full z-30 top-0">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
@@ -22,20 +25,14 @@
 
             <!-- Desktop Menu -->
             <div class="hidden sm:flex sm:items-center">
-                <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
-                <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">About</a>
-                <a href="#" class="text-gray-700
+                <a routerLink="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
+                <a routerLink="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">About</a>
+                <a routerLink="#" class="text-gray-700
                 hover:text-gray-900 px-3 py-2 text-sm font-medium">Contact</a>
             </div>
 
-
             <div class="flex items-center">
-                <label for="language-select" class="mr-2">Nyelv:</label>
-                <select id="language-select" [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
-                    <option value="hu">Magyar</option>
-                    <option value="en">English</option>
-                    <option value="de">Deutsch</option>
-                </select>
+
             </div>
             <!-- Login/Avatar -->
             <div class="flex items-center">
@@ -45,19 +42,17 @@
                                 class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 id="avatarButton"
                                 aria-expanded="false"
-                                (click)="toggleDropdown()"
-                        >
+                                (click)="toggleDropdown()">
                             <img class="h-8 w-8 rounded-full" src="/assets/avatar.jpg" alt="Avatar">
                         </button>
                         <!-- Dropdown menu -->
                         <div
                                 *ngIf="dropdownOpen"
-                                class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-md z-50"
-                        >
-                            <a href="/profile" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-md z-50">
+                            <a routerLink="/profile" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
                                 Modify Profile
                             </a>
-                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" (click)="logout()">
+                            <a routerLink="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" (click)="logout()">
                                 Logout
                             </a>
                         </div>
@@ -65,12 +60,11 @@
                 </ng-container>
                 <ng-template #loginButton>
                     <button class="text-white bg-blue-600
-                    hover:bg-blue-700 px-4 py-2 rounded-md" (click)="login()">
-                        Login
+                    hover:bg-blue-700 px-4 py-2 rounded-md" (click)="loginModal.open()">
+                        {{ 'Login'| translate }}
                     </button>
                 </ng-template>
-            </div>
-            <button type="button" class="text-blue-700 border
+                <button type="button" class="text-blue-700 border
              border-blue-700 hover:bg-blue-700 hover:text-white
               focus:ring-4 focus:outline-none focus:ring-blue-300
               font-medium rounded-full text-sm p-2.5 text-center inline-flex
@@ -78,11 +72,48 @@
                dark:border-blue-500 dark:text-blue-500
                dark:hover:text-white dark:focus:ring-blue-800
                 dark:hover:bg-blue-500" (click)="toggleDarkMode()">
-                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                    <path d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z"/>
-                </svg>
-                <span class="sr-only">Icon description</span>
-            </button>
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                        <path d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z"/>
+                    </svg>
+                    <span class="sr-only">Icon description</span>
+                </button>
+<!--                <label for="language-select" class="mr-2"></label>-->
+<!--                <select id="language-select" [(ngModel)]="selectedLanguage" (change)="changeLanguage(null)">-->
+<!--                    <option value="hu">Magyar</option>-->
+<!--                    <option value="en">English</option>-->
+<!--                    <option value="de">Deutsch</option>-->
+<!--                </select>-->
+
+                <div class="flex space-x-2">
+                    <button
+                            (click)="changeLanguage('hu')"
+                            class="p-2 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                            [class.border]="selectedLanguage === 'hu'"
+                            [class.border-blue-500]="selectedLanguage === 'hu'"
+                            aria-label="Select Hungarian">
+                        🇭🇺
+                    </button>
+                    <button
+                            (click)="changeLanguage('en')"
+                            class="p-2 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                            [class.border]="selectedLanguage === 'en'"
+                            [class.border-blue-500]="selectedLanguage === 'en'"
+                            aria-label="Select English">
+                        🇬🇧
+                    </button>
+                    <button
+                            (click)="changeLanguage('de')"
+                            class="p-2 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                            [class.border]="selectedLanguage === 'de'"
+                            [class.border-blue-500]="selectedLanguage === 'de'"
+                            aria-label="Select German">
+                        🇩🇪
+                    </button>
+                </div>
+
+
+            </div>
+
 
 
         </div>

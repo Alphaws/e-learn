@@ -40,15 +40,34 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_quill',
     'rest_framework',
+    'rest_framework_simplejwt',
     'parler',
     'roadmap'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 
 LANGUAGES = [
     ('en', 'English'),
     ('hu', 'Magyar'),
     ('de', 'Deutsch'),
 ]
+LANGUAGE_CODE = 'en'
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'hu'},
+        {'code': 'de'},
+    ),
+    'default': {
+        'fallbacks': ['en'],
+        'hide_untranslated': False,
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -68,7 +87,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

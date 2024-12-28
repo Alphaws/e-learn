@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from roadmap.models import Subject
 
-class SubjectSerializer(serializers.ModelSerializer):
+class SubjectsSerializer(serializers.ModelSerializer):
     translations = serializers.SerializerMethodField()
 
     class Meta:

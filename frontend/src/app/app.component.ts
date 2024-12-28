@@ -11,15 +11,15 @@ import { TranslateService } from "@ngx-translate/core";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
+
   title = 'frontend';
 
-
-    constructor(private translate: TranslateService) {
-      this.translate.addLangs(['de', 'en']);
-      this.translate.setDefaultLang('en');
-      this.translate.use('en');
-    }
+  constructor(private translate: TranslateService) {
+    this.translate.addLangs(['hu', 'en', 'de']);
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+  }
 
 
   ngOnInit() {

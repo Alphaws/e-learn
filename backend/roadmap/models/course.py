@@ -1,6 +1,4 @@
 from django.db import models
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
 from parler.models import TranslatableModel, TranslatedFields
 
 
@@ -37,8 +35,8 @@ class Chapter(TranslatableModel):
 
 
     class Meta:
-        verbose_name = "Chapter"
-        verbose_name_plural = "Chapters"
+        verbose_name = "Course Chapter"
+        verbose_name_plural = "Course Chapters"
         ordering = ['sort_order']
 
     def __str__(self):
@@ -51,6 +49,9 @@ class Lesson(TranslatableModel):
     lesson_type = models.CharField(max_length=50, choices=[
         ('text', 'Text'),
         ('video', 'Video'),
+        ('quiz', 'Quiz'),
+        ('task', 'Task'),
+        ('slideshow', 'Slideshow'),
     ])
     translations = TranslatedFields(
         title=models.CharField(max_length=100),
@@ -59,8 +60,8 @@ class Lesson(TranslatableModel):
     video_url = models.URLField(blank=True)
 
     class Meta:
-        verbose_name = "Lesson"
-        verbose_name_plural = "Lessons"
+        verbose_name = "Course Lesson"
+        verbose_name_plural = "Course Lessons"
         ordering = ['sort_order']
 
     def __str__(self):

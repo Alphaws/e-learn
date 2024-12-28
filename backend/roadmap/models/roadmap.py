@@ -1,6 +1,7 @@
 from django.db import models
 from parler.models import TranslatableModel, TranslatedFields
 from django_quill.fields import QuillField
+from .subject import Subject
 
 class Roadmap(TranslatableModel):
     translations = TranslatedFields(
@@ -8,6 +9,7 @@ class Roadmap(TranslatableModel):
         description=QuillField(),
     )
     start_stage = models.ForeignKey('RoadmapStage', on_delete=models.CASCADE, related_name='roadmap_start_stage')
+    subjects = models.ManyToManyField(Subject, related_name='roadmaps')
 
     def __str__(self):
         return self.safe_translation_getter('title', any_language=True)

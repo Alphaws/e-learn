@@ -3,6 +3,8 @@ import { NgForOf } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { DataService } from "../../../common/services/data.service";
 import { TranslatePipe } from "@ngx-translate/core";
+import { LanguageService } from "../../../common/services/language.service";
+import { SubjectInterface } from "@interfaces/subject.interface";
 
 
 @Component({
@@ -18,13 +20,15 @@ import { TranslatePipe } from "@ngx-translate/core";
 export class HomeComponent implements OnInit {
 
   dataService: any = inject(DataService);
-  subjects: any[] = [];
-  language = 'hu';
+  languageService: any = inject(LanguageService);
+  subjects: SubjectInterface[] = [];
+  language$ = this.languageService.language;  // A Signal változó
+
 
   constructor() {}
 
   ngOnInit() {
-    this.dataService.getData().subscribe({
+    this.dataService.getSubjects().subscribe({
       next: (data: any) => {
         this.subjects = data;
         console.log(this.subjects);

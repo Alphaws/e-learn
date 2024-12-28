@@ -8,21 +8,21 @@
         <div *ngFor="let subject of subjects" class="border rounded-lg p-4 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
             <!-- Subject Title -->
             <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                {{ subject.title[language] }}
+                {{ subject.translations[language$()].title }}
             </h2>
             <!-- Subject Description -->
             <p class="text-gray-600 dark:text-gray-400 mt-2">
-                {{ subject.description[language] }}
+                {{ subject.translations[language$()].description }}
             </p>
             <!-- Modules List -->
-            <ul class="mt-4">
-                <li *ngFor="let module of subject.modules" class="text-gray-700 dark:text-gray-300">
-                    - {{ module.title[language] }}
-                </li>
-            </ul>
+<!--            <ul class="mt-4">-->
+<!--                <li *ngFor="let module of subject.modules" class="text-gray-700 dark:text-gray-300">-->
+<!--                    - {{ module.title[language$()] }}-->
+<!--                </li>-->
+<!--            </ul>-->
             <!-- Navigation Link -->
             <a routerLink="/s/{{ subject.slug }}" class="text-blue-500 hover:underline dark:text-blue-400">
-                Tovább...
+                {{ 'more...' | translate }}
             </a>
         </div>
     </div>
