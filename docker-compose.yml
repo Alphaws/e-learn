@@ -67,7 +67,6 @@ services:
       - traefik
       - prstart_network
 
-
 networks:
   traefik:
     external: true
