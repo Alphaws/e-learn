@@ -28,15 +28,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     initFlowbite();
-    this.authService.getProfileData().subscribe({
-      next: (data: any) => {
-        console.log(data);
-        this.user = data; // Felhasználó adatai
-      },
-      error: (err: any) => {
-        console.error(err);
-        this.user = null; // Hibakezelés, pl. ha nem bejelentkezett
-      },
-    });
+    // this.authService.getProfileData().subscribe({
+    //   next: (data: any) => {
+    //     console.log(data);
+    //     this.user = data; // Felhasználó adatai
+    //   },
+    //   error: (err: any) => {
+    //     console.error(err);
+    //     this.user = null; // Hibakezelés, pl. ha nem bejelentkezett
+    //   },
+    // });
   }
 }

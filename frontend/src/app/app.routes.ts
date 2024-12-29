@@ -17,6 +17,21 @@ export const routes: Routes = [
     component: SubjectDetailsComponent
   },
   {
+    path: 'p',
+    loadChildren: () =>
+        import('./modules/project/project.module').then(m => m.ProjectModule),
+  },
+  {
+    path: 'c',
+    loadChildren: () =>
+        import('./modules/course/course.module').then(m => m.CourseModule),
+  },
+  {
+    path: 'b',
+    loadChildren: () =>
+        import('./modules/blog/blog.module').then(m => m.BlogModule),
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }

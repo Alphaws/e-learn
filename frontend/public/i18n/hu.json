@@ -14,5 +14,11 @@
   "Lost Password?": "Elfelejtett jelszó",
   "Not registered?": "Még nem regisztráltál?",
   "Create account": "Fiók létrehozása",
-  "Login to your account": "Belépés a fiókodba"
+  "Login to your account": "Belépés a fiókodba",
+  "Home": "Kezdőlap",
+  "Courses": "Tanfolyamok",
+  "Blog": "Blog",
+  "All Rights Reserved.": "Minden jog fenntartva.",
+  "About": "Rólunk",
+  "Privacy Policy": "Adatkezelési tájékoztató"
 }

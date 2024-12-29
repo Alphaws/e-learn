@@ -1,41 +1,68 @@
 <app-login-modal #loginModal (loginSuccess)="onLoginSuccess()"></app-login-modal>
-
-
 <nav class="bg-white border-b border-gray-200 fixed w-full z-30 top-0">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-            <!-- Logo -->
             <div class="flex items-center space-x-3">
-                <a href="/" class="flex-shrink-0">
-                    <img src="/assets/logo.svg" alt="Logo" class="h-8">
+                <a routerLink="/" class="flex-shrink-0">
+                    <img src="/assets/logo.png" alt="PrStart Logo" class="h-8">
                 </a>
                 <span class="text-xl font-bold text-gray-800">{{ environment.title }}</span>
             </div>
 
-            <!-- Hamburger Button -->
             <button
-                    class="sm:hidden inline-flex items-center justify-center rounded-md text-gray-400 hover:text-gray-900 focus:outline-none"
-                    (click)="toggleMobileMenu()"
-                    aria-label="Toggle navigation"
-            >
+                    class="sm:hidden inline-flex items-center justify-center rounded-md text-gray-400
+                     hover:text-gray-900 focus:outline-none"
+                    (click)="toggleMobileMenu()" aria-label="Toggle navigation">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
 
-            <!-- Desktop Menu -->
             <div class="hidden sm:flex sm:items-center">
-                <a routerLink="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
-                <a routerLink="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">About</a>
-                <a routerLink="#" class="text-gray-700
-                hover:text-gray-900 px-3 py-2 text-sm font-medium">Contact</a>
+                <a routerLink="/" class="text-gray-700
+                 hover:text-gray-900 px-3 py-2 text-sm font-medium">{{ 'Home' | translate }}</a>
+                <a routerLink="/c" class="text-gray-700
+                 hover:text-gray-900 px-3 py-2 text-sm font-medium">{{ 'Courses' | translate }}</a>
+                <a routerLink="/b" class="text-gray-700
+                hover:text-gray-900 px-3 py-2 text-sm font-medium">{{ 'Blog' | translate}}</a>
             </div>
 
             <div class="flex items-center">
 
+
+
+                <div class="flex space-x-2">
+                    <button
+                            (click)="changeLanguage('hu')"
+                            class="p-1 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                            [class.border]="selectedLanguage === 'hu'"
+                            [class.border-blue-500]="selectedLanguage === 'hu'"
+                            aria-label="Select Hungarian">
+                        🇭🇺
+                    </button>
+                    <button
+                            (click)="changeLanguage('en')"
+                            class="p-1 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                            [class.border]="selectedLanguage === 'en'"
+                            [class.border-blue-500]="selectedLanguage === 'en'"
+                            aria-label="Select English">
+                        🇬🇧
+                    </button>
+                    <button
+                            (click)="changeLanguage('de')"
+                            class="p-1 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                            [class.border]="selectedLanguage === 'de'"
+                            [class.border-blue-500]="selectedLanguage === 'de'"
+                            aria-label="Select German">
+                        🇩🇪
+                    </button>
+                </div>
             </div>
-            <!-- Login/Avatar -->
-            <div class="flex items-center">
+        </div>
+        <!-- Mobile Menu -->
+        <div *ngIf="mobileMenuOpen" class="sm:hidden">
+            <div class="pt-2 pb-3 space-y-1">
+
                 <ng-container *ngIf="isLoggedIn; else loginButton">
                     <div class="relative" data-dropdown>
                         <button
@@ -66,6 +93,13 @@
                         {{ 'Login'| translate }}
                     </button>
                 </ng-template>
+
+
+
+                <a routerLink="/" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">{{ 'Home' | translate }}</a>
+                <a routerLink="/" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">{{ 'Courses' | translate }}</a>
+                <a routerLink="/" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">{{ 'Blog' | translate }}</a>
+
                 <button type="button" class="text-blue-700 border
              border-blue-700 hover:bg-blue-700 hover:text-white
               focus:ring-4 focus:outline-none focus:ring-blue-300
@@ -80,46 +114,6 @@
                     <span class="sr-only">Icon description</span>
                 </button>
 
-                <div class="flex space-x-2">
-                    <button
-                            (click)="changeLanguage('hu')"
-                            class="p-2 rounded focus:outline-none focus:ring focus:ring-blue-300"
-                            [class.border]="selectedLanguage === 'hu'"
-                            [class.border-blue-500]="selectedLanguage === 'hu'"
-                            aria-label="Select Hungarian">
-                        🇭🇺
-                    </button>
-                    <button
-                            (click)="changeLanguage('en')"
-                            class="p-2 rounded focus:outline-none focus:ring focus:ring-blue-300"
-                            [class.border]="selectedLanguage === 'en'"
-                            [class.border-blue-500]="selectedLanguage === 'en'"
-                            aria-label="Select English">
-                        🇬🇧
-                    </button>
-                    <button
-                            (click)="changeLanguage('de')"
-                            class="p-2 rounded focus:outline-none focus:ring focus:ring-blue-300"
-                            [class.border]="selectedLanguage === 'de'"
-                            [class.border-blue-500]="selectedLanguage === 'de'"
-                            aria-label="Select German">
-                        🇩🇪
-                    </button>
-                </div>
-
-
-            </div>
-
-
-
-        </div>
-
-        <!-- Mobile Menu -->
-        <div *ngIf="mobileMenuOpen" class="sm:hidden">
-            <div class="pt-2 pb-3 space-y-1">
-                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</a>
-                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">About</a>
-                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact</a>
             </div>
         </div>
     </div>

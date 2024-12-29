@@ -14,7 +14,8 @@ export class DataService {
   constructor() { }
 
   getSubjects() {
-    return this.http.get(this.apiUrl + '/api/subjects/', this.CONTEXT);
+    return this.http.get(`${this.apiUrl}/api/subjects/`, this.CONTEXT);
+    // this.apiUrl + '/api/subjects/'
   }
 
   getSubject(slug: string) {
