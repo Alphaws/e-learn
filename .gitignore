@@ -2,3 +2,4 @@
 backend/.venv
 backend/db.sqlite3
 .env
+__pycache__/
