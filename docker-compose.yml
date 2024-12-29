@@ -53,8 +53,6 @@ services:
     working_dir: /app
     volumes:
       - ./frontend:/app
-    ports:
-      - "8200:80"
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik
