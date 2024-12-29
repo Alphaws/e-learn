@@ -91,7 +91,13 @@ CORS_ALLOWED_ORIGINS = [
     "https://prstart.hu",
 ]
 CORS_ALLOW_CREDENTIALS = True
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://api.prstart.hu',
+    'https://prstart.hu',
+    'https://www.prstart.hu',
+    'http://localhost:4200',
+    'https://localhost:4200',
+]
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
