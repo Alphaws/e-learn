@@ -3,8 +3,16 @@
   "subject": "Tárgy",
   "more...": "Tovább...",
   "Login": "Bejelentkezés",
+  "Logout": "Kijelentkezés",
+  "My Profile": "Profilom",
   "Username": "Felhasználónév",
   "Email": "Email",
   "Password": "Jelszó",
-  "Cancel": "Mégsem"
+  "Cancel": "Mégsem",
+  "Sign in": "Belépés",
+  "Remember me": "Emlékezz rám",
+  "Lost Password?": "Elfelejtett jelszó",
+  "Not registered?": "Még nem regisztráltál?",
+  "Create account": "Fiók létrehozása",
+  "Login to your account": "Belépés a fiókodba"
 }

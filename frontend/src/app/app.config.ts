@@ -18,6 +18,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { jsonInterceptor } from "@interceptors/json.interceptor";
 import { jwtInterceptor } from "@interceptors/jwt.interceptor";
+import { JwtModule } from "@auth0/angular-jwt";
 
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, 'i18n/', ".json");
@@ -56,6 +57,11 @@ export const appConfig: ApplicationConfig = {
             provide: TranslateLoader,
             useFactory: httpLoaderFactory,
             deps: [HttpClient]
+          }
+        }),
+        JwtModule.forRoot({
+          config: {
+            tokenGetter: () => localStorage.getItem('token')
           }
         })
     )

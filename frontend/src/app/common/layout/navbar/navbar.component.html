@@ -9,7 +9,7 @@
                 <a href="/" class="flex-shrink-0">
                     <img src="/assets/logo.svg" alt="Logo" class="h-8">
                 </a>
-                <span class="text-xl font-bold text-gray-800">PrStart</span>
+                <span class="text-xl font-bold text-gray-800">{{ environment.title }}</span>
             </div>
 
             <!-- Hamburger Button -->
@@ -50,10 +50,12 @@
                                 *ngIf="dropdownOpen"
                                 class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-md z-50">
                             <a routerLink="/profile" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                                Modify Profile
+                                {{ 'My Profile' | translate }}
                             </a>
-                            <a routerLink="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" (click)="logout()">
-                                Logout
+                            <a routerLink="#"
+                               class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                               (click)="logout()">
+                                {{ 'Logout' | translate }}
                             </a>
                         </div>
                     </div>
@@ -77,12 +79,6 @@
                     </svg>
                     <span class="sr-only">Icon description</span>
                 </button>
-<!--                <label for="language-select" class="mr-2"></label>-->
-<!--                <select id="language-select" [(ngModel)]="selectedLanguage" (change)="changeLanguage(null)">-->
-<!--                    <option value="hu">Magyar</option>-->
-<!--                    <option value="en">English</option>-->
-<!--                    <option value="de">Deutsch</option>-->
-<!--                </select>-->
 
                 <div class="flex space-x-2">
                     <button

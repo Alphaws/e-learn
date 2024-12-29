@@ -26,7 +26,10 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError("Invalid email or password.")
 
         refresh = RefreshToken.for_user(user)
+        print('LoginSerializer_validate:')
+        print(user)
         return {
-            "refresh": str(refresh),
-            "access": str(refresh.access_token),
+            "refresh_token": str(refresh),
+            "token": str(refresh.access_token),
+            "user": user,
         }

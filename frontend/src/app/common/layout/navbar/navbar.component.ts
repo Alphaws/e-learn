@@ -5,6 +5,8 @@ import { TranslateModule, TranslatePipe, TranslateService } from "@ngx-translate
 import { LanguageService } from "@services/language.service";
 import { RouterLink } from "@angular/router";
 import { LoginModalComponent } from "@modules/auth/login-modal/login-modal.component";
+import { AuthService } from "@services/auth.service";
+import { environment } from "@environments/environment";
 
 @Component({
   selector: 'app-navbar',
@@ -24,6 +26,7 @@ export class NavbarComponent implements OnInit{
   translate = inject(TranslateModule);
   translateService = inject(TranslateService);
   languageService = inject(LanguageService);
+  authService = inject(AuthService);
   isLoggedIn: boolean = false;
   dropdownOpen: any;
   mobileMenuOpen: any;
@@ -36,16 +39,16 @@ export class NavbarComponent implements OnInit{
     this.mobileMenuOpen = false;
     this.darkMode = true;
     this.selectedLanguage = this.languageService.getLanguage();
-    //this.selectedLanguage = 'hu';
     this.translateService.setDefaultLang('hu');
     this.translateService.use(this.selectedLanguage);
   }
 
   ngOnInit() {
-    const token = localStorage.getItem('jwt');
-    if (token) {
-      this.isLoggedIn = true; // Token alapján automatikusan bejelentkezve marad
-    }
+    // const token = localStorage.getItem('jwt');
+    // console.log('Token:', token);
+    // if (token) {
+    //   this.isLoggedIn = true; // Token alapján automatikusan bejelentkezve marad
+    // }
   }
 
   toggleMobileMenu() {
@@ -59,16 +62,10 @@ export class NavbarComponent implements OnInit{
   }
 
   logout() {
-    // Kilépési logika
-    console.log('User logged out');
     this.isLoggedIn = false;
-    this.mobileMenuOpen = false; // Zárja be a mobilmenüt is
+    this.mobileMenuOpen = false;
+    this.authService.logout();
   }
-
-  //login() {
-
-    //this.isLoggedIn = true;
-  //}
 
   toggleDarkMode() {
     const html = document.documentElement;
@@ -92,6 +89,8 @@ export class NavbarComponent implements OnInit{
   }
 
   onLoginSuccess() {
-    this.isLoggedIn = true;
+    //this.isLoggedIn = true;
   }
+
+  protected readonly environment = environment;
 }

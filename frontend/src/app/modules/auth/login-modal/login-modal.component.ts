@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, inject } from '@angular/core';
-import { JsonPipe, NgIf } from "@angular/common";
+import { NgIf } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { TranslatePipe } from "@ngx-translate/core";
 import { AuthService } from "@services/auth.service";

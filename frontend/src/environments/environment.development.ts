@@ -1,4 +1,5 @@
 export const environment = {
-  apiUrl: 'http://localhost:8000/',
+  title: "PrStart Dev",
+  apiUrl: 'https://prstart-api.localhost/',
   isDev: true
 };

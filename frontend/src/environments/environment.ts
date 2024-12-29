@@ -1,4 +1,5 @@
 export const environment = {
-  apiUrl: 'http://localhost:8000/',
+  title: "PrStart",
+  apiUrl: 'https://api.prstart.hu',
   isDev: false
 };
