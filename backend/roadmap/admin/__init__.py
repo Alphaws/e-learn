@@ -5,3 +5,4 @@ from .roadmap_stage_admin import RoadmapStageAdmin, StageRelationshipAdmin
 from .subject_admin import SubjectAdmin
 from .course_admin import CourseAdmin, ChapterAdmin, LessonAdmin
 from .blog_admin import BlogPostAdmin
+from .user_profile_admin import UserProfileAdmin

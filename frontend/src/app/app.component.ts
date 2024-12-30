@@ -20,9 +20,9 @@ export class AppComponent implements OnInit {
   authService: any = inject(AuthService);
 
   constructor(private translate: TranslateService) {
-    this.translate.addLangs(['hu', 'en', 'de']);
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
+    this.translate.addLangs(['hu', 'en', 'de', 'ru']);
+    this.translate.setDefaultLang('hu');
+    this.translate.use('hu');
   }
 
 

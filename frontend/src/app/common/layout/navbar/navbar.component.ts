@@ -1,5 +1,6 @@
 import { Component, inject, OnInit, Renderer2 } from '@angular/core';
-import { NgIf } from "@angular/common";
+import { CommonModule, NgIf } from "@angular/common";
+
 import { FormsModule } from "@angular/forms";
 import { TranslateModule, TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { LanguageService } from "@services/language.service";
@@ -15,7 +16,8 @@ import { environment } from "@environments/environment";
     FormsModule,
     RouterLink,
     LoginModalComponent,
-    TranslatePipe
+    CommonModule,
+    TranslatePipe,
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
@@ -32,6 +34,9 @@ export class NavbarComponent implements OnInit{
   mobileMenuOpen: any;
   darkMode: boolean = true;
   selectedLanguage: any;
+  languageDropdownOpen: boolean = false;
+
+  user = this.authService.user;
 
   constructor() {
     this.isLoggedIn = false;
@@ -77,13 +82,16 @@ export class NavbarComponent implements OnInit{
   }
 
   changeLanguage(lang: string | null) {
+    this.selectedLanguage = lang;
     if (lang) {
       this.translateService.use(lang);
       this.languageService.setLanguage(lang);
+      this.languageDropdownOpen = false
       return lang;
     }
     this.translateService.use(this.selectedLanguage);
     this.languageService.setLanguage(this.selectedLanguage);
+    this.languageDropdownOpen = false;
     return this.selectedLanguage;
 
   }
@@ -92,5 +100,20 @@ export class NavbarComponent implements OnInit{
     //this.isLoggedIn = true;
   }
 
+  toggleLanguageDropdown() {
+    this.languageDropdownOpen = !this.languageDropdownOpen;
+  }
+
   protected readonly environment = environment;
+
+  getSelectedLanguageImage() {
+    const languageImages: { [key: string]: string } = {
+      en: 'assets/images/flags/gb.svg',
+      hu: 'assets/images/flags/hu.svg',
+      de: 'assets/images/flags/de.svg',
+      ru: 'assets/images/flags/ru.svg'
+    };
+    const selectedLanguage = this.selectedLanguage || this.languageService.getLanguage();
+    return languageImages[selectedLanguage] || 'assets/images/flags/hu.svg';
+  }
 }

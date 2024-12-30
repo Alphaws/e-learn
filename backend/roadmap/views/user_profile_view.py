@@ -14,4 +14,7 @@ class UserProfileView(APIView):
             'id': user.id,
             'username': user.username,
             'email': user.email,
+            'language': user.profile.language,
+            'avatar': user.profile.avatar,
+            'phone_number': user.profile.phone_number,
         })

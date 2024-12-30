@@ -4,9 +4,9 @@ import { environment } from "@environments/environment";
 import { catchError, map, Observable, of, pipe } from "rxjs";
 import { Login, LoginResponse, User } from "@interfaces/login.interface";
 import { IS_PUBLIC } from "@interceptors/jwt.interceptor";
-//import { TokenService } from "@services/token.service";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { Router } from "@angular/router";
+import { TokenService } from "@services/token.service";
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +15,11 @@ export class AuthService {
 
   http = inject(HttpClient);
   router = inject(Router);
-  //tokenService = inject(TokenService);
+  tokenService = inject(TokenService);
   jwtHelper = inject(JwtHelperService);
 
   #user: WritableSignal<User | null> = signal<User | null>(null);
-  user = this.#user.asReadonly();
+  user: any = this.#user.asReadonly();
 
   apiUrl = environment.apiUrl;
   CONTEXT = {context: new HttpContext().set(IS_PUBLIC, true)};
@@ -36,8 +36,11 @@ export class AuthService {
   }
 
   login(loginData: Login): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.apiUrl}/api/auth/login/`, loginData, {withCredentials: true})
-        .pipe(
+    return this.http.post<LoginResponse>(
+        `${this.apiUrl}/api/auth/login/`,
+        loginData,
+        this.CONTEXT
+    ).pipe(
             catchError(error => {
               if (error.status === 401) {
                 console.error('Invalid credentials');
@@ -47,6 +50,8 @@ export class AuthService {
             map((response: LoginResponse) => {
               if ('user' in response) {
                 this.#user.set(response.user);
+                this.tokenService.setToken(response.access_token);
+                this.tokenService.setToken(response.refresh_token, 'refresh');
               }
               console.log('RESPONSE:', response);
               return response;
@@ -70,4 +75,20 @@ export class AuthService {
   forgotPassword(email: string) {}
 
   resetPassword(email: string, password: string, code: string) {}
+
+  refreshToken() {
+    const refresh_token = this.tokenService.getToken('refresh');
+    if (!refresh_token) {
+      return of();
+    }
+    return this.http.post<LoginResponse>(`${this.apiUrl}/api/auth/refresh_token/`, {refresh: refresh_token}, {withCredentials: true})
+        .pipe(
+            map((response: LoginResponse) => {
+              if ('user' in response) {
+                this.#user.set(response.user);
+              }
+              return response;
+            })
+        );
+  }
 }

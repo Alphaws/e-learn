@@ -3,7 +3,7 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
   providedIn: 'root'
 })
 export class LanguageService {
-  private availableLanguages = ['en', 'hu', 'de'];  // Elérhető nyelvek
+  private availableLanguages = ['en', 'hu', 'de', 'ru'];  // Elérhető nyelvek
   private defaultLanguage = 'hu';  // Alapértelmezett nyelv
 
   language :WritableSignal<string> = signal(this.getLanguage());

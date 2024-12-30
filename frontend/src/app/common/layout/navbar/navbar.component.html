@@ -13,7 +13,8 @@
                     class="sm:hidden inline-flex items-center justify-center rounded-md text-gray-400
                      hover:text-gray-900 focus:outline-none"
                     (click)="toggleMobileMenu()" aria-label="Toggle navigation">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
@@ -24,63 +25,21 @@
                 <a routerLink="/c" class="text-gray-700
                  hover:text-gray-900 px-3 py-2 text-sm font-medium">{{ 'Courses' | translate }}</a>
                 <a routerLink="/b" class="text-gray-700
-                hover:text-gray-900 px-3 py-2 text-sm font-medium">{{ 'Blog' | translate}}</a>
-            </div>
-
-            <div class="flex items-center">
-
-
-
-                <div class="flex space-x-2">
-                    <button
-                            (click)="changeLanguage('hu')"
-                            class="p-1 rounded focus:outline-none focus:ring focus:ring-blue-300"
-                            [class.border]="selectedLanguage === 'hu'"
-                            [class.border-blue-500]="selectedLanguage === 'hu'"
-                            aria-label="Select Hungarian">
-                        🇭🇺
-                    </button>
-                    <button
-                            (click)="changeLanguage('en')"
-                            class="p-1 rounded focus:outline-none focus:ring focus:ring-blue-300"
-                            [class.border]="selectedLanguage === 'en'"
-                            [class.border-blue-500]="selectedLanguage === 'en'"
-                            aria-label="Select English">
-                        🇬🇧
-                    </button>
-                    <button
-                            (click)="changeLanguage('de')"
-                            class="p-1 rounded focus:outline-none focus:ring focus:ring-blue-300"
-                            [class.border]="selectedLanguage === 'de'"
-                            [class.border-blue-500]="selectedLanguage === 'de'"
-                            aria-label="Select German">
-                        🇩🇪
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div *ngIf="mobileMenuOpen" class="sm:hidden">
-            <div class="pt-2 pb-3 space-y-1">
+                hover:text-gray-900 px-3 py-2 text-sm font-medium">{{ 'Blog' | translate }}</a>
 
                 <ng-container *ngIf="isLoggedIn; else loginButton">
                     <div class="relative" data-dropdown>
-                        <button
-                                class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-blue-600"
-                                id="avatarButton"
+                        <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 aria-expanded="false"
                                 (click)="toggleDropdown()">
                             <img class="h-8 w-8 rounded-full" src="/assets/avatar.jpg" alt="Avatar">
                         </button>
                         <!-- Dropdown menu -->
-                        <div
-                                *ngIf="dropdownOpen"
-                                class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-md z-50">
+                        <div *ngIf="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-md z-50">
                             <a routerLink="/profile" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
                                 {{ 'My Profile' | translate }}
                             </a>
-                            <a routerLink="#"
-                               class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                            <a routerLink="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                                (click)="logout()">
                                 {{ 'Logout' | translate }}
                             </a>
@@ -88,16 +47,103 @@
                     </div>
                 </ng-container>
                 <ng-template #loginButton>
-                    <button class="text-white bg-blue-600
-                    hover:bg-blue-700 px-4 py-2 rounded-md" (click)="loginModal.open()">
-                        {{ 'Login'| translate }}
-                    </button>
+                    <button class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md" (click)="loginModal.open()">{{ 'Login'| translate }}</button>
                 </ng-template>
 
 
 
+            </div>
+
+            <div class="flex items-center">
+
+
+                <div class="flex space-x-2">
+<!--                    <button (click)="changeLanguage('hu')"-->
+<!--                            class="p-1 rounded focus:outline-none focus:ring focus:ring-blue-300"-->
+<!--                            [class.border]="selectedLanguage === 'hu'"-->
+<!--                            [class.border-blue-500]="selectedLanguage === 'hu'"-->
+<!--                            aria-label="Select Hungarian">🇭🇺-->
+<!--                    </button>-->
+<!--                    <button (click)="changeLanguage('en')"-->
+<!--                            class="p-1 rounded focus:outline-none focus:ring focus:ring-blue-300"-->
+<!--                            [class.border]="selectedLanguage === 'en'"-->
+<!--                            [class.border-blue-500]="selectedLanguage === 'en'"-->
+<!--                            aria-label="Select English">🇬🇧-->
+<!--                    </button>-->
+<!--                    <button (click)="changeLanguage('de')"-->
+<!--                            class="p-1 rounded focus:outline-none focus:ring focus:ring-blue-300"-->
+<!--                            [class.border]="selectedLanguage === 'de'"-->
+<!--                            [class.border-blue-500]="selectedLanguage === 'de'"-->
+<!--                            aria-label="Select German">🇩🇪-->
+<!--                    </button>-->
+
+
+                    <div class="relative">
+                        <button (click)="toggleLanguageDropdown()"
+                                class="p-1 rounded focus:outline-none focus:ring focus:ring-blue-300">
+                            <img [src]="getSelectedLanguageImage()" alt="Language Icon" class="h-5 w-5 inline-block"/>
+                        </button>
+                        <div *ngIf="languageDropdownOpen"
+                             class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-md z-50">
+                            <button (click)="changeLanguage('hu')"
+                                    class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    aria-label="Select Hungarian">🇭🇺 Hungarian
+                            </button>
+                            <button (click)="changeLanguage('en')"
+                                    class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    aria-label="Select English">🇬🇧 English
+                            </button>
+                            <button (click)="changeLanguage('de')"
+                                    class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    aria-label="Select German">🇩🇪 German
+                            </button>
+                            <button (click)="changeLanguage('ru')"
+                                    class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    aria-label="Select German">🇩🇪 Russian
+                            </button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div *ngIf="mobileMenuOpen" class="sm:hidden">
+            <div class="pt-2 pb-3 space-y-1">
+
+
+                <ng-container *ngIf="isLoggedIn; else loginButton">
+                    <div class="relative" data-dropdown>
+                        <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                id="avatarButton"
+                                aria-expanded="false"
+                                (click)="toggleDropdown()">
+                            <img class="h-8 w-8 rounded-full" src="/assets/avatar.jpg" alt="Avatar">
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div *ngIf="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-md z-50">
+                            <a routerLink="/profile" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                {{ 'My Profile' | translate }}
+                            </a>
+                            <a routerLink="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                               (click)="logout()">
+                                {{ 'Logout' | translate }}
+                            </a>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #loginButton>
+                    <button class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md" (click)="loginModal.open()">{{ 'Login'| translate }}</button>
+                </ng-template>
+
                 <a routerLink="/" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">{{ 'Home' | translate }}</a>
-                <a routerLink="/" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">{{ 'Courses' | translate }}</a>
+                <a routerLink="/"
+                   class="block px-4 py-2 text-gray-700 hover:bg-gray-100">{{ 'Courses' | translate }}</a>
                 <a routerLink="/" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">{{ 'Blog' | translate }}</a>
 
                 <button type="button" class="text-blue-700 border
@@ -108,7 +154,8 @@
                dark:border-blue-500 dark:text-blue-500
                dark:hover:text-white dark:focus:ring-blue-800
                 dark:hover:bg-blue-500" (click)="toggleDarkMode()">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                         viewBox="0 0 18 18">
                         <path d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z"/>
                     </svg>
                     <span class="sr-only">Icon description</span>

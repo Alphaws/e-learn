@@ -17,16 +17,16 @@ export class TokenService {
 
   public setToken(token: string, type: string = 'access'): void {
     const key = this.TOKEN_KEY_PAIRS[type];
-    sessionStorage.setItem(key, token);
+    localStorage.setItem(key, token);
   }
 
   public getToken(type: string = 'access'): string | null {
     const key = this.TOKEN_KEY_PAIRS[type];
-    return sessionStorage.getItem(key);
+    return localStorage.getItem(key);
   }
 
   public removeToken(type: string = 'access'): void {
     const key = this.TOKEN_KEY_PAIRS[type];
-    sessionStorage.removeItem(key);
+    localStorage.removeItem(key);
   }
 }

@@ -14,6 +14,7 @@ SECRET_KEY = 'django-insecure-&8ro*gah&)_^ti@rqs9ca-ge^-&29s)j68#=rgd5%#9rm!=ljz
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'prstart-api.localhost',
     'api.prstart.hu',
     'localhost',
     '127.0.0.1',
@@ -46,25 +47,28 @@ REST_FRAMEWORK = {
 }
 
 LANGUAGES = [
-    ('en', 'English'),
     ('hu', 'Magyar'),
+    ('en', 'English'),
     ('de', 'Deutsch'),
+    ('ru', 'Russian'),
 ]
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'hu'
 PARLER_LANGUAGES = {
     None: (
-        {'code': 'en'},
         {'code': 'hu'},
+        {'code': 'en'},
         {'code': 'de'},
+        {'code': 'ru'},
     ),
     'default': {
-        'fallbacks': ['en'],
+        'fallbacks': ['hu'],
         'hide_untranslated': False,
     },
 }
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -108,57 +112,32 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 ]
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+LANGUAGE_CODE = 'hu'
+TIME_ZONE = 'Europe/Budapest'
 USE_I18N = True
-
 USE_TZ = True
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

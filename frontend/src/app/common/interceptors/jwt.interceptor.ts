@@ -4,9 +4,9 @@ import { AuthService } from "@services/auth.service";
 
 export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
   //const authService = inject(AuthService);
-  //if (req.context.get(IS_PUBLIC)) {
+  if (req.context.get(IS_PUBLIC)) {
     return next(req);
-  //}
+  }
   const authRequest = addTokenToHeader(req);
   return next(authRequest);
 };

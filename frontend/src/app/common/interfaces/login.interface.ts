@@ -7,6 +7,7 @@ export interface User {
   username: string;
   firstname: string;
   lastname: string;
+  email: string;
   roles: string[];
 }
 
@@ -16,8 +17,8 @@ export interface LoginError {
 }
 
 export interface LoginSuccess {
-  // token: string;
-  // refresh_token: string;
+  access_token: string;
+  refresh_token: string;
   user: User;
   message: string;
 }

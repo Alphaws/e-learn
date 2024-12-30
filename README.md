@@ -4,6 +4,12 @@
 
 ## Setup
 
+### Új tantárgy:
+
+  Admin - Subjects - Add Subject
+
+
+
 ## Dev
 
 Lokális fejlesztés

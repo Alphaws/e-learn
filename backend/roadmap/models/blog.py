@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+
 class BlogPost(models.Model):
     subjects = models.ManyToManyField(
         'Subject', related_name="blog_posts"
@@ -38,17 +39,21 @@ class BlogPost(models.Model):
 
     def is_published(self):
         from django.utils.timezone import now
-
         return self.publish_date is not None and self.publish_date <= now()
+
+    def save(self, *args, **kwargs):
+        print(self.subjects)
 
 
 class BlogPage(models.Model):
-    blog_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE,
-                                  related_name="pages")  # Kapcsolódás a blogbejegyzéshez
+    blog_post = models.ForeignKey(
+        BlogPost, on_delete=models.CASCADE,
+        related_name="pages"
+    )
     title = models.CharField(max_length=250)
     slug = models.SlugField(unique=True)
-    content = models.TextField()  # Az oldal tartalma
-    sort_order = models.IntegerField(default=0)  # Az oldalak sorrendje a blogbejegyzésen belül
+    content = models.TextField()
+    sort_order = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = "Blog Page"
