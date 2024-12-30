@@ -14,5 +14,5 @@ class SubjectsSerializer(serializers.ModelSerializer):
                 'title': obj.safe_translation_getter('title', language_code=language),
                 'description': obj.safe_translation_getter('description', language_code=language),
             }
-            for language in ['hu', 'en', 'de']
+            for language in ['hu', 'en', 'de', 'ru']
         }
